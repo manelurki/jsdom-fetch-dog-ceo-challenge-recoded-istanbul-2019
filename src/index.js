@@ -7,4 +7,13 @@ function fetchImg() {
   
   return fetch (imgUrl).then(resp=> resp.json()).then(json=>renderImg(packagejson));}
   
-function 
+function renderImg(json){
+  const main=document.getElementById('dog-image-container');
+  console.log(json.message);
+  const arr=json.message;
+  for (image of arr) {
+    const imgn= document.createElement('img');
+    imgn.src=image;
+    main.appendChild(imgn);
+  }
+}
